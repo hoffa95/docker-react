@@ -1,10 +1,9 @@
 sudo: required
-language: generic
 services: 
   - docker
 
 before_install:
   - docker build -t hofferpet/docker-react -f Dockerfile.dev .
 
-  script:
+script:
   - docker run -e CI=true hofferpet/docker-react npm run test -- --coverage
